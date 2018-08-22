@@ -1,0 +1,29 @@
+{
+  "name": "nodeapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodeapi"
+  ],
+  "author": "imakan",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "express": "^4.16.3",
+<<<<<<< HEAD
+    "ndb": "^1.0.18",
+=======
+    "puppeteer": "^1.6.2",
+>>>>>>> cb6e2af2b970be173293173076ee20c273551f25
+    "shelljs": "^0.8.2"
+  },
+  "devDependencies": {
+    "ndb": "^1.0.17"
+  }
+}

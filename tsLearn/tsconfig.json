@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./built",
+    "allowJs": true,
+    "target": "es6",
+    "module": "commonjs",
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    // "esModuleInterop": true,
+    "noFallthroughCasesInSwitch": true,
+    // "strictPropertyInitialization": true, // 属性初始化时，赋值
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "paths": {
+      "jquery": [
+        "node_modules/jquery/dist/jquery"
+      ] // 此处映射相对于baseUrl
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
