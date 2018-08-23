@@ -7,7 +7,7 @@
     "module": "commonjs",
     "strictNullChecks": true,
     "noImplicitReturns": true,
-    "noImplicitThis": true,
+    "noImplicitThis": false,
     // "esModuleInterop": true,
     "noFallthroughCasesInSwitch": true,
     // "strictPropertyInitialization": true, // 属性初始化时，赋值

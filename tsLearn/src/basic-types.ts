@@ -1,4 +1,4 @@
-module Validation{
+namespace basic {
   let isDone: boolean = true
   let strName: string = '111'
   let name: string = 'aaa'
