@@ -5,7 +5,31 @@ namespace generics {
   }
   identity('maaa')
   identity<number>(1111)
-  function loggingIdentity<T>(arg: T[]):T[] {
+  // function loggingIdentity<T>(arg: T[]): T[] {
+  //   return arg
+  // }
+  // 泛型接口
+  interface GenericaIndentity<T> {
+    (arg: T): T
+  }
+  function indentity<T>(arg: T): T {
     return arg
   }
+  let myIndentity: GenericaIndentity<number> = indentity
+  // 泛型类
+
+  class GenericNumber<T>{
+    zeroValue: T
+    add: (x: T, y: T) => T
+  }
+  interface Lengthwise {
+    length: number;
+  }
+
+  function loggingIdentity<T extends Lengthwise>(arg: T): T {
+    console.log(arg.length);  // Now we know it has a .length property, so no more error
+    return arg;
+  }
+  loggingIdentity({length: 10, value: 3});
+
 }

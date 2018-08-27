@@ -17,7 +17,7 @@ namespace functions {
   interface Card {
     suit: string;
     card: number;
-}
+  }
   interface Deck {
     suits: string[];
     cards: number[];
@@ -26,7 +26,7 @@ namespace functions {
   let deck = {
     suits: ["hearts", "spades", "clubs", "diamonds"],
     cards: Array(52),
-    createCardPicker: function (this:Deck) {
+    createCardPicker: function (this: Deck) {
       // NOTE: the line below is now an arrow function, allowing us to capture 'this' right here
       return () => {
         let pickedCard = Math.floor(Math.random() * 52);
