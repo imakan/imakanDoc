@@ -12,6 +12,7 @@
     "math-lib": "^0.1.7"
   },
   "devDependencies": {
+    "@types/jquery": "^3.3.6",
     "@types/node": "^10.7.1"
   }
 }

@@ -1,5 +1,13 @@
 {
   "globalDependencies": {
-    "atom": "registry:env/atom#1.6.0+20160723033700"
+    "atom": "registry:env/atom#1.6.0+20160723033700",
+    "d3": "github:DefinitelyTyped/DefinitelyTyped/d3/d3.d.ts#1c05872e7811235f43780b8b596bfd26fe8e7760",
+    "mocha": "registry:dt/mocha#2.2.5+20170311011848",
+    "node": "registry:env/node#0.10.0+20170213133316"
+  },
+  "dependencies": {
+    "bluebird": "registry:npm/bluebird#3.5.0+20170314181206",
+    "debug": "registry:npm/debug#2.0.0+20170504163145",
+    "lodash": "registry:npm/lodash#4.0.0+20161015015725"
   }
 }
