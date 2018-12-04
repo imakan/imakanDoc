@@ -42,3 +42,13 @@ print("连接后的字符串 ",table.concat(fruits,", "))
 print("连接后的字符串 ",table.concat(fruits,", ", 2,3))
 
 --  注意注意：当我们获取table的长度的时候无论是用# 还是table.getn其都会在索引终端的地方停止计数，而导致无法正确的取得table的长度
+
+
+function table_lengh(t)
+  local length = 0
+  for k,v in pairs(t)
+  do
+    length = length+1
+  end
+  return length
+end
