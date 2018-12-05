@@ -85,3 +85,12 @@ source ~/.profile
 -- C 包
 
 -- lua 与 C 是很容易结合的，使用C为lua写包
+
+--[[
+  
+Lua在一个叫loadlib的函数内提供了所有的动态连接的功能。这个函数有两个参数:库的绝对路径和初始化函数。所以典型的调用的例子如下:
+local path = "/usr/local/lua/lib/libluasocket.so"
+local f = loadlib(path, "luaopen_socket")
+
+
+--]]
