@@ -3,8 +3,7 @@
 -- 以下简单的类包含了三个属性，area,length和breadth,printArea方法用于打印计算结果
 
 -- Meta class
-Rectangle = {area = 0, length = 0, breadth = 0}
-
+Rectangle = {}
 
 -- 派生类的方法 new 
 function Rectangle:new (o,length,breadth)
@@ -17,7 +16,6 @@ function Rectangle:new (o,length,breadth)
   self.area = length * breadth
   return o
 end
-
 
 -- 派生类的方法 printArea
 function Rectangle:printArea()
