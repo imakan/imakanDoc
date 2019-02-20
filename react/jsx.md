@@ -55,3 +55,12 @@ function BlueDatePicker() {
 
 
 # jsx中的子代
+
+1、jsx中的子代
+在jsx中在两个标签之间的内容被传递为专门的属性：props.children。
+
+
+jsx的子代有：
+字符串字面量、js表达式、函数，(布尔值和null和undefined)作为子代是会被忽略
+
+在jsx中不要用falsy 一定要用boolean表达式
