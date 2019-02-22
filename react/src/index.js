@@ -185,12 +185,52 @@ class SignUpDialog extends React.Component {
 }
 
 
+class CustomTextInput extends React.Component {
+  constructor (props){
+    super(props)
+    this.textInput = React.createRef()
+    this.focusTextInput = this.focusTextInput.bind(this)
+  }
+  focusTextInput(){
+    this.textInput.current.focus()
+  }
+  render(){
+    return (
+      <div>
+        <input  ref={this.textInput} type='text' />
+        <input type='button' value='点点点' onClick={this.focusTextInput} />
+      </div>
+    )
+  }
+}
+
+class NameFrom extends React.Component {
+  constructor(props){
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+  handleSubmit (event) {
+    console.log('通过ref的函数赋值获取input的值是：'+this.input.value)
+    event.preventDefault()
+  }
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input type='text' ref={(input => this.input=input)}/>
+        <input type="submit" value="Submit" />
+      </form>
+    )
+  }
+}
+
 ReactDom.render(
   <div>
     <Clock />
     <Calculator />
     <SignUpDialog />
     <NumberList numbers={[1, 2, 3, 4, 5]} />
+    <CustomTextInput />
+    <NameFrom />
   </div>,
   document.getElementById('root')
 )
