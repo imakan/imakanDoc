@@ -1,4 +1,4 @@
-![eventloop](/4.png)
+![eventloop](./4.png)
 
 我们在启动nginx时候，我们在WAIT FOR EVENTS ON CONNECTIONS，我们打开了80或者443端口，这个时候我们在等待新的事件进来，比如新的客户端连上我们的nginx,这个事件往往对应着我们的epoll的epoll_wait方法，这个时候我们的nginx处于sleep进程状态的
 
