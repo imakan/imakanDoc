@@ -14,4 +14,3 @@ class HelloMessage extends React.Component {
 }
 ```
 
-web
