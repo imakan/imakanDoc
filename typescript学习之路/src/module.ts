@@ -30,4 +30,4 @@ export class ZipCodeValidator implements StringValidator {
 // 在node.js 里面大部分工作是通过加载一个或者多个模块实现的。我们可以使用顶级的export声明来为每个模块都定义一个.d.ts文件，但最好还是通过写在一个大的.d.ts文件里。我们使用与构造一个外部命名空间相似的方法，但是这里使用module
 // module关键字，并且把名字用引号括起来，方便之后import 
 // declare module "hot-new-module"; declare d.ts 声明
-import _ = require('lodash')
+// import _ = require('lodash')

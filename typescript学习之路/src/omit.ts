@@ -13,9 +13,33 @@ type T02 = NonNullable<string | number | undefined>
 
 type T03 = ReturnType<() => string>
 
-
 class C {
   x = 0;
   y = 0
 }
 type T04 = InstanceType<typeof C>
+
+
+interface Student {
+  name: string;
+  age: number;
+}
+
+type T05 = Pick<Student,'name'>
+
+
+// 正常的Pick内置对象是，返回我们选择的对象属性，比如 Pick<Student,'name'> 是返回Student中name的键值属性，也就是name:string，如果实现Omit的话，我们需要返回age:number，所以：
+
+// Pick是选出在T中的属性键值，而Omit是选出不再里面的，所以我们用到了Exclude
+
+type Omit<T,K extends keyof T> = Pick<T,Exclude<keyof T,K>>
+
+interface T06 {
+  a:number;
+  b:string;
+  c:boolean;
+  d:any[]
+}
+
+type OmitType = Omit<T06,'a'>
+

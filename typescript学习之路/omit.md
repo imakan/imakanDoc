@@ -8,12 +8,6 @@
 
 + InstanceType<T>：获取构造函数的实例类型
 
-
-
-`Omit`:是删除指定对象，ts中没有原生内置`Omit`，但是我们可以通过上面的条件类型，实现`Omit`
-
-```
-declare type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
-```
+实现 `Omit`就是删除指定对象，返回剩下的对象；
 
 具体实例见 `omit.ts`
