@@ -52,9 +52,9 @@
 
 ### 类属性
 
-+ `defaultProps`
++ `defaultProps`：默认属性
 
-+ `displayName`
++ `displayName`： 类的显示名字
 
 ### 实例属性
 
@@ -183,3 +183,74 @@ static getDerivedStateFromProps(nextProps,nextState)
 **组件实例化**和**接受新属性**时将会调用`getDerivedStateFromProps()`，它应该返回一个对象来更新状态，或者返回null来表明新属性不需要更新状态
 
 > 如果父组件导致了组件的重新渲染，那么即使没有属性没有更新，这一方法也会被调用，而且调用`this.setState()`通常不会触发`getDerivedStateFromProps()`
+
+## getSnapshotBeforeUpdate()
+
+`getSnapshotBeforeUpdate()`是在最新的渲染输出提交给`DOM`前立即调用。
+
+```javascript
+class ScrollingList extends React.Component {
+  public listRef = React.createRef()
+  getSnapshotBeforeUpdate(prevProps,prevState){
+    if(prevProps.list.length < this.props.list.length){
+      return this.listRef.current.srollHeight;
+    }
+    return null
+  }
+  componentDidUpdate(prveProps,prevState,snapshot){
+    if(snapshot !== null){
+      this.listRef.current.scrollTop += this.listRef.current.scrollHeight -snapshot;
+    }
+  }
+  render() {
+    return (
+      <div ref={this.listRef}>{}</div> 
+    )
+  }
+}
+
+```
+这里为了支持**异步渲染**，在`getSnapshotBeforeUpdate`中读取`scrollHeight`而不是在`componentWillUpdate`，这点很重要。由于异步渲染，在"渲染"期间(`componentnWillUpdate`和`render()`)和”提交“时期（如`getSnapshotBeforeUpdate`和`componentDidUpdate`）间可能会延迟，如果一个用户在这期间做了像改变浏览器尺寸的事情，从`componentWillUpdate`中读出的`scrollHeight`的值将会是滞后的.
+
+
+这里说的**异步渲染**:react从16.3开始开始全面转向异步渲染，但是有三个API在异步渲染的时候会造成一些问题
++ `ComponentWillMount`
+
++ `ComponentWillUpdate`
+
++ `ComponentWillReceiveProps`
+这三个API在将来的版本中可以能会废弃，目前已经加上了`unsafe_`前缀。尽量避免。
+
+
+## 错误边界
+
+错误边界是一种react组件，能够捕捉在他们的子组件树中任意地方的js错误，记录这些错误，并且显示一个退路UI，组件定义其中的一个方法`componentDidCatch`和`static getDerivedStateFromError()`，这个组件就变成了错误边界
+
+> 错误边界只能用于捕捉在树中低于它的组件，一个错误边界不能捕捉自己内部的错误
+
+## static getDerivedStateFromError()
+
+```javascript
+static getDerivedStateFromError()
+```
+用法：在后代的某个组件发生了错误之后，这个生命周期钩子被调用
+
+其方法接受一个参数，这个参数是被抛出的错误，并且应该返回一个值去更新状态
+
+```javascript
+class ErrorBoundary extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {hasError:false}
+  }
+  static getDerivedStateFromError(error){
+    return {hasError:true}
+  }
+  render(){
+    if(this.state.hasError){
+      return <h1>Something went Wrong</h1>
+    }
+    return this.prop.children;
+  }
+}
+```

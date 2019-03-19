@@ -18,6 +18,11 @@ Refs用于访问在render方法中创建的DOM节点或者react元素
 
 > 创建Ref,React.createRef()，通过refs获取react元素，当构建组件时，refs通过被赋值给一个实例的属性。我们就可以在任意的地方
 ```javascript
+
+// 1、this.refs.myRef.msg
+// 2、元素中返回函数 ref = {(ele) => {this.myRef = ele}}
+//3、this.ref.myRef.current
+
 class MyComponent extends React.Component {
   constructor(props){
     super(props)
