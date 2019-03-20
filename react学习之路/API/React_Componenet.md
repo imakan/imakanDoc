@@ -293,3 +293,48 @@ class ErrorBoundary extends React.Component {
   }
 }
 ```
+
+## 即将要废弃的生命周期钩子函数
+
+
++ `unsafe_componentWillMount()`: 请用`constructor`代替
+
++ `unsafe_componentWillUpdate()`：请用`static getDerivedStateFromProps()`
+
++ `unsafe_componentWillReceiveProps()`:请用`static getDerivedStateFromProps()`代替
+
+
+## 其他API
+
+生命周期方法（React会自动帮我们调用它）
+
++ setState()：推荐使用 `this.setState((state,prop) => {return counter:state.quantity+1})`
+
++ forceUpdate()：默认情况下，我们的组件更新取决于state的变化，如果我们想要react强制重新渲染，可以使用`forceUpdate()`
+调用forceUpdate()将会导致组件的`render()`方法被调用，忽略本组件的`SCU`，但是会调用子组件所有的生命周期钩子
+
+
+## 类属性
+
++ `defaultProps`，为类组件本省定义一些默认的属性
+
+```javascript
+demoComponent.defaultProps = {
+  color:'blue'
+}
+```
+
++ `displayName`：这个主要用在调试阶段
+
+
+## 实例属性
+
++ `props`:这个组件中调用者所定义的属性
+
+**`this.props.children`是一个特别的属性，通常在`JSX`中使用**
+
++ `state`：状态，用于更新组件
+
+**如果一个状态不用于渲染或者数据流，就没必要放在状态中**
+
+记住，永远不要直接改变this.state的值
