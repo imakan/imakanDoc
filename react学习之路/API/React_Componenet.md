@@ -139,7 +139,7 @@ constructor(props){
 componentDidUpdate(preProps,preState,snapshot)
 ```
 
-`componentDidUpdate()`紧跟在更新发生后调用。对于初次渲染，不调用此方法
+`componentDidUpdate()`紧跟在更新发生后调用。对于初次渲染，不调用此方法
 
 这个方法可以操作`DOM`，同时也可以通过前后属性的对比，判断我们是否请求接口的时机，比如
 
@@ -151,9 +151,9 @@ componentDidUpdate(preProps,preState,snapshot){
 }
 ```
 
-**注意：如果我们实现了`getSnapshotBeforeUpdate()`，那么我们的`componentDidUpdate()`的第三个参数就是他的返回值，否则就是`undefined`**
+**注意：如果我们实现了`getSnapshotBeforeUpdate()`，那么我们的`componentDidUpdate()`的第三个参数就是他的返回值，否则就是`undefined`**
 
-如果`shouldComponentUpdate()`返回`false`,我们的`componentDidUpdate()`将不会被调用
+如果`shouldComponentUpdate()`返回`false`,我们的`componentDidUpdate()`将不会被调用
 
 ## `componentWillUnmount()`
 ```javascript
