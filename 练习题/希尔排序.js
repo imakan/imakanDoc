@@ -20,6 +20,7 @@ let shellSort = arr => {
       arr[j + gap] = temp;
     }
   }
+
   // 对数组进行分组；先将gap设置为数组长度的一半
   // for (let gap = len / 2; gap > 0; gap /= 2) {
   //   for (let i = 0; i < gap; i++) {
