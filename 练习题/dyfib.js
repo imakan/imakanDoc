@@ -13,7 +13,7 @@ let fb = n => {
 // console.log(fb(100))   // 卡死
 // 用动态规划的方式
 
-let dyfb = n => {
+let dyfb1 = n => {
   if (n < 2) return n;
   // 利用数组去相加，比如arr[3] = arr[2] + arr[1]
   // 因为我们知道arr[0] = 1  arr[1] = 1 arr[2] = 2 arr[3] = 3
@@ -32,4 +32,17 @@ let dyfb = n => {
 };
 //  1 1 2 3 5
 
+let dyfb = n => {
+  let cr = 1;
+  let next = 1;
+  let result = 1;
+  for (let i = 2; i < n; i++) {
+    result = next + cr; // 2
+    cr = next;
+    next = result;
+  }
+  return result;
+};
+
 console.log(dyfb(1000));
+console.log(dyfb1(1000));
