@@ -1,0 +1,13 @@
+{
+  "name": "1",
+  "version": "1",
+  "description": "1",
+  "main": "1",
+  "repository": "1",
+  "author": "1",
+  "license": "1",
+  "private": true,
+  "dependencies": {
+    "typescript": "^3.5.3"
+  }
+}

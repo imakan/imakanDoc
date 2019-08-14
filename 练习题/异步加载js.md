@@ -12,3 +12,5 @@
 + async的script标签，一旦下载完是会阻塞渲染的，async的script标签的加载顺序是无序的
 
 
+
+

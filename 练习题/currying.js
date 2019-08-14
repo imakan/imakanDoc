@@ -31,4 +31,4 @@ function sum (a,b,c) {
   return a + b + c
 }
 let sumFn = curry(sum)
-console.log(sumFn(1)(2)(3)())
+console.log(sumFn(1)(2)(3)()) 
