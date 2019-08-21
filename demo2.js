@@ -17,6 +17,8 @@ let obj = {
   h: {}
 };
 
+// 实现效果   [[a,h],[b,e],[c,g],[f,n]]
+
 let BFS = node => {
   let arr = [];
   let stack = [node];
@@ -24,7 +26,7 @@ let BFS = node => {
     let temp = [];
     let obj = stack.shift();
     for (let key in obj) {
-      temp.push(key);
+      temp.push(key);·
       // console.log(obj[key])
       console.log(obj[key].toString());
       if (obj[key].toString() == "[object Object]") {
