@@ -38,7 +38,7 @@ let shellSort = arr => {
   //     console.log(arr);
   //   }
   // }
-  return arr
+  return arr;
 };
 // console.log(shellSort(arr))
 // [5,1,3,4,9]
@@ -63,32 +63,32 @@ let shellSort = arr => {
 let insertSort = arr => {
   let temp = 0;
   let j = 0;
-  for(let i =1;i<arr.length;i++){
-    temp = arr[i]
-    j = i-1;
-    while(j>=0 && temp < arr[j]){
-      arr[j+1] = arr[i];
+  for (let i = 1; i < arr.length; i++) {
+    temp = arr[i];
+    j = i - 1;
+    while (j >= 0 && temp < arr[j]) {
+      arr[j + 1] = arr[j];
       j--;
     }
-    arr[j+1] = temp;
+    arr[j + 1] = temp;
   }
-  return arr
-}
+  return arr;
+};
 // console.log(insertSearch([5,1,3,4,9]))
 
-let  quicKSort = arr => {
-  if(arr.length < 2){
-    return arr
+let quicKSort = arr => {
+  if (arr.length < 2) {
+    return arr;
   }
-  let mid = arr.splice(Math.floor(arr.length/2),1)
-  let left = []
-  let right = []
-  for(let i=0;i<arr.length;i++){
-    if(arr[i] >= mid){
-      left.push(arr[i])
-    }else{
-      right.push(arr[i])
+  let mid = arr.splice(Math.floor(arr.length / 2), 1);
+  let left = [];
+  let right = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= mid) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
     }
   }
-  return quicKSort(right).concat(mid,quicKSort(left))
-}
+  return quicKSort(right).concat(mid, quicKSort(left));
+};

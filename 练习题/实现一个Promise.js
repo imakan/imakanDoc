@@ -152,3 +152,20 @@ p.then(
     console.log(err);
   }
 );
+
+// 实现一个promise.race 
+
+function race(entries){
+  let Constructor = this;
+  if(!isArray(entries)){
+    return new Constructor(function(resolve,reject){
+      return reject(new TypeError('不是数组'))
+    })
+  }else{
+    return new Constructor((resolve,reject) => {
+      for(let i =0;i<entries.length;i++){
+        Constructor.resolve(entries[i]).then(resolve,reject)
+      }
+    })
+  }
+}

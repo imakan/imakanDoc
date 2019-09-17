@@ -27,13 +27,13 @@ let debounce = (fn, delay) => {
  * resize
  */
 let throttle = (fn, delay) => {
-  let flag = false;
-  return (...args) => {
-    if (flag) return false;
-    flag = true;
-    setTimeout(() => {
-      fn.call(this, args);
-    }, delay);
+  let pre = 0;
+  return () => {
+    let now = +new Date();
+    if(now - pre >= delay){
+      fn.apply(this,arguments)
+      pre = now;
+    }
   };
 };
 

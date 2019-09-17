@@ -20,7 +20,7 @@ let quickSort = arr => {
   }
   return quickSort(right).concat(mid, quickSort(left));
 };
-//  快排的时间复杂度是O(nlog2^n)
+//  快排的时间复杂度是O(nlog2n) n在上面
 //  console.log(quickSort(arr))
 
 /**
