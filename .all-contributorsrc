@@ -1,0 +1,25 @@
+{
+  "projectName": "imakanDoc",
+  "projectOwner": "imakan",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "imakan",
+      "name": "imakan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/11512704?v=4",
+      "profile": "https://github.com/imakan",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
