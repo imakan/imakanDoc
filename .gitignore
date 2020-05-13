@@ -1,2 +1,19 @@
-.vscode
+*.DS_Store
+.DS_Store
+/dist
+/build
 node_modules
+built/
+npm-debug.log*
+yarn-debug.log*
+test/unit/coverage
+node_modules
+
+
+# Editor directories and files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+/.idea
+/.vscode
