@@ -9,18 +9,14 @@
     "strictNullChecks": true,
     "noImplicitReturns": true,
     "noImplicitThis": false,
-    // "esModuleInterop": true,
+    "esModuleInterop": true,
     "noFallthroughCasesInSwitch": true,
-    // "strictPropertyInitialization": true, // 属性初始化时，赋值
+    "strictPropertyInitialization": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "paths": {
-      "jquery": [
-        "node_modules/jquery/dist/jquery"
-      ] // 此处映射相对于baseUrl
+      "jquery": ["node_modules/jquery/dist/jquery"]
     }
   },
-  "include": [
-    "./src/**/*"
-  ]
+  "include": ["./src/**/*"]
 }
