@@ -1,0 +1,13 @@
+关键字：hooks链表 （memoizedState）,hooks API 实例，组件 setter ==> hooks
+
+如果用hashmap实现的话，需要给react传个key 增加心智负担
+
+Hook API调用会产生一个对应的Hook实例（并追加到Hooks链），
+但是返回给组件的是state和对应的setter，
+re-render时框架并不知道这个setter对应哪个Hooks实例（除非用HashMap来存储Hooks，
+但这就要求调用的时候把相应的key传给React，会增加Hooks使用的复杂度）。
+re-render时会从第一行代码开始重新执行整个组件，
+即会按顺序执行整个Hooks链，如果re-render时sth不满足，则会执行useState(5)分支，
+相反useState(4)则不会执行到，导致useState(5)返回的值其实是4，因为首次render之后，
+只能通过useState返回的dispatch修改对应Hook的memoizedState，
+因此必须要保证Hooks的顺序不变，所以不能在分支调用Hooks，只有在顶层调用才能保证各个Hooks的执行顺序！

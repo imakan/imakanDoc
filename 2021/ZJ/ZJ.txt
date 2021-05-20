@@ -1,0 +1,135 @@
+字节
+【一面】
+聊和广告相关的项目经验
+聊广告js sdk的相关技术
+聊PC端和移动端广告业务场景的区别
+
+为什么要使用iframe来加载广告？(shadowdom,webworker,自建sandbox?)
+  为什么使用iframe，就要聊下第三方脚本面临的问题：
+  未知上下文，
+  共享环境，（样式隔离，变量环境隔离，document.write能执行）
+  安全限制（跨域，p3p）
+
+使用iframe有什么弊端？
+  无法获取到iframe的曝光情况，无法获取到父级页面的情况，iframe的高度需要通过内外通信来动态调整
+如何安全地使用第三方提供的js sdk？（iframe、CSP）
+  加载：defer async
+  调用依赖：将第三方甲苯定义一个数组，调用api的名称叫做push,lib还没有加载完成钱，可以利用数据的push机制建立一个调用缓存
+
+
+TypeScript中的泛型是什么？
+泛型的设计的目的 提供成员之间有意义的约束。
+泛型接口，泛型工具，泛型类
+
+
+
+React中是如何管理状态的？（单向数据流、Redux）
+useState() ,props， 还有内部的dobux原理是createContexts
+
+
+
+Redux中间件的原理是什么？（纯函数、compose）
+
+
+
+手写compose函数
+
+function compose(middleware) {
+  return funciton (ctx,next) {
+    let index = -1
+    funciton dispatch(i){
+      let fn = middleware[i]
+      if(i === middleware.length) fn = next
+      if(!fn) return promise.resolve()
+      try{
+        return promise.resolve(fn(ctx,dispatch.bind(null,i+1)))
+      }catch(e){
+        return promise.reject(e)
+      }
+    }
+  }
+}
+
+Koa中间件的原理
+洋葱圈，主要是 koa-compose
+compose 返回一个promise， promise,promise.resolve(fn1(ctx,functio nnext() {
+  return promise.resove(fn2)
+}))
+
+
+和Redux中间件的原理有什么区别？
+
+
+算法题：求两个字符串的最长公共子串
+
+abbcd
+aabbbccdd
+
+
+
+
+【二面】
+聊和广告相关的项目经验
+
+如何判断当前页面是在iframe中打开的？
+
+除了通过window.top和当前window进行比较，还有其它方式吗？（在聊的过程中提到了referrer、CSP相关内容）
+
+
+下面这段React代码中，存在什么问题？如何改进？
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount(count + 1);
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+  return <h1>{count}</h1>;
+}
+上面这段代码中的return起到什么作用？ 
+
+
+
+组件销毁的过程中，先执行子组件还是父组件的willUnmount逻辑？
+
+
+如何通过前端来实现水印？
+（可以通过canvas绘图，然后转图片，把图片设置为background；利用shadow DOM的封装特性。
+利用MutationObserver来监听DOM元素的改变，防止水印被篡改，或者在被篡改的时候发送信息，上报页面情况）
+
+
+fetch和XMLHttpRequest的区别有哪些？
+
+Web性能优化手段有哪些？
+
+dns-prefetch是什么？
+
+为什么展示广告项目当时是选择使用TypeScript而不是选择用Babel或者Webpack？
+（当时考虑到浏览器兼容性，尽可能不要引入es5-shim、json2等polyfill）
+
+移动端在弱网环境下如何保证用户体验？
+（三层分离，保证页面骨架和内容能够先加载出来，再加载样式，美化外观，最后再加载js，处理交互；页面直出，SSR；lazy load；lazy import；）
+
+如何保证在断网条件下也能展示出页面？（通过manifest文件配置缓存策略、PWA）
+
+算法题：解析IP '2552551262' --> ['255.255.126.2', '255.255.12.62’]
+
+【三面】
+聊和广告相关的项目经验（前半个小时）
+
+项目中有无错误监控、展示成功率统计等？
+
+js sdk如何进行版本控制？
+
+聊曝光打点和点击打点的实现细节
+聊如何规避广告样式覆盖问题
+聊广告DOM结构如何渲染
+聊广告样式如何自定义
+
+聊性能优化如何衡量
+
+聊如何评估一个升级点是否会造成影响
+
+算法题：千位分隔符，12345678 -> ’12,345,678’

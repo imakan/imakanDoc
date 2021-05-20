@@ -7,6 +7,7 @@ built/
 npm-debug.log*
 yarn-debug.log*
 test/unit/coverage
+introduce.md
 node_modules
 
 
